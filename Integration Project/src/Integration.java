@@ -114,7 +114,7 @@ public class Integration {
 			case "Green":
 				System.out.println("Correct!");
 				break;
-			defalt :
+			default :
 				System.out.println("Invalid response");
 				break;	
 			}
