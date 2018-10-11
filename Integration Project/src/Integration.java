@@ -61,24 +61,19 @@ public class Integration {
 
   }
 
-  public static void yourAge(double myAge) { // method "yourAge" header with "double myAge"
-                                             // parameters
-  //  Scanner ScanAge = new Scanner(System.in);
+  public static void yourAge(double myAge) { 
+    // method "yourAge" header with "double myAge" parameters
+    //  Scanner ScanAge = new Scanner(System.in);
     System.out.println("What is your age?");
     int userAge = scan.nextInt();
-    int differenceInAge = userAge - (int) myAge; // casting double myAge to an int so the primitive
-                                                 // data types match
+    int differenceInAge = userAge - (int) myAge; 
+    // casting double myAge to an int so the primitive data types match
     if (differenceInAge == 0) {
       System.out.println("We are the same age!");
     } else {
       System.out.println(
-          "That is a " + Math.abs(differenceInAge) + " year difference between you and I."); // Utilize
-                                                                                             // "Math.abs"
-                                                                                             // method
-                                                                                             // from
-                                                                                             // the
-                                                                                             // Math
-                                                                                             // class
+          "That is a " + Math.abs(differenceInAge) + " year difference between you and I."); 
+      // Utilize "Math.abs" method from the Math class
       return;
     }
   }
