@@ -23,7 +23,7 @@ public class Integration {
     
     String ageQuestion = "How old am I?"; // String with variable ageQuestion = "How old am I?"
     System.out.println(ageQuestion); // Print ageQuestion
-    double myAge = 19;
+    double myAge;
     // double(holds a number and a decimal) with variable name myAge have a value of 19
     do {
         System.out.println("Enter my age.");
@@ -34,12 +34,19 @@ public class Integration {
 
     System.out.println("I am " + (int)myAge);
     // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
-    String bdayQuestion = "What day and month was I born?"; // String with variable bdayQuestion
+    String bdayQuestion = "What day and month was I born? (month.day)"; // String with variable bdayQuestion
     System.out.println(bdayQuestion); // Print bdayQuestion
-    final double myBday = 2.25; // double with variable name myBday have a value of 2.25
+    double myBday; // double with variable name myBday have a value of 2.25
+    do {
+      System.out.println("Enter my birthday.");
+      myBday = scan.nextDouble();
+  }
+    while(myBday != 2.25);
+    System.out.println("You got it!");
     System.out.println("I was born on " + myBday); // Print "I was born on " + myBday
 
     System.out.println("What is your first name?");// Ask what their name is
+    scan.nextLine();
     String yourName = scan.nextLine();// Get user input
     yourName = yourName.trim();
     // use String method .trim() to get ride of spaces at the end of input
