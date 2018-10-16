@@ -10,6 +10,11 @@ public class Integration {
   static Scanner scan; // Create scanner object
 
   public static void main(String[] args) {
+/*    System.out.println("Lets count down from 5");
+    for(int i=5; i>=0; i--) {
+    System.out.println("Count down at: " + i);
+  }
+  */
     // assign scanner object
     scan = new Scanner(System.in);
     System.out.println("Hello, This project is to show what I have learned in COP 2006");
@@ -20,6 +25,13 @@ public class Integration {
     System.out.println(ageQuestion); // Print ageQuestion
     double myAge = 19;
     // double(holds a number and a decimal) with variable name myAge have a value of 19
+    do {
+        System.out.println("Enter my age.");
+        myAge = scan.nextInt();
+    }
+    while(myAge != 19);
+    System.out.println("You got it!");
+
     System.out.println("I am " + (int)myAge);
     // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
     String bdayQuestion = "What day and month was I born?"; // String with variable bdayQuestion
