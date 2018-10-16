@@ -10,33 +10,32 @@ public class Integration {
   static Scanner scan; // Create scanner object
 
   public static void main(String[] args) {
-/*    System.out.println("Lets count down from 5");
-    for(int i=5; i>=0; i--) {
-    System.out.println("Count down at: " + i);
-  }
-  */
     // assign scanner object
     scan = new Scanner(System.in);
     System.out.println("Hello, This project is to show what I have learned in COP 2006");
+    System.out.println("Lets start by count down from 5");
+    for(int i=5; i>=0; i--) {
+    System.out.println("Count down at: " + i);
+  }
     String myName = "Benjamin"; // String(holds a list of characters) with variable myName
     System.out.println("My name is " + myName);
     
     String ageQuestion = "How old am I?"; // String with variable ageQuestion = "How old am I?"
     System.out.println(ageQuestion); // Print ageQuestion
     double myAge;
-    // double(holds a number and a decimal) with variable name myAge have a value of 19
+    // double(holds a number and a decimal) with variable name myAge
     do {
         System.out.println("Enter my age.");
         myAge = scan.nextInt();
     }
     while(myAge != 19);
     System.out.println("You got it!");
-
     System.out.println("I am " + (int)myAge);
     // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
+    
     String bdayQuestion = "What day and month was I born? (month.day)"; // String with variable bdayQuestion
     System.out.println(bdayQuestion); // Print bdayQuestion
-    double myBday; // double with variable name myBday have a value of 2.25
+    double myBday; // double with variable name myBday
     do {
       System.out.println("Enter my birthday.");
       myBday = scan.nextDouble();
