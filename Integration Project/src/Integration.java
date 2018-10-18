@@ -162,24 +162,34 @@ public class Integration {
     } 
   }
 
-  public static int useArithmeticOperatorsOnNewAndOldInput(int value) {
-    System.out.println("Give me another number to perform arithmetic operations on.");
-    int NewInput = scan.nextInt();
-    System.out.println(NewInput + " divided by " + value + " = " + NewInput/value +
-    " (with a remainder of " + NewInput%value +")");
-    System.out.println(NewInput + " multiplied by " + value + " = " + NewInput*value);
-    System.out.println(NewInput + " pluse 1" + " = " + ++NewInput);
-    System.out.println(NewInput + " minuse 1" +  " = " + --NewInput);
-    System.out.print(NewInput + " pluse " +value+ " = ");
-    value += NewInput;
-    System.out.println(value);
-    return NewInput;
-    
-  }
+  public static void useArithmeticOperatorsOnNewAndOldInput(int value) {
+    System.out.println("Give me another number to perform arithmetic operations on."
+        + "(it will continue until you 0)");
+    for (;;) {
+      String StrNewInput = scan.nextLine();
+      if (StrNewInput.equals("")) {
+        StrNewInput = scan.nextLine();
+      }
+      int IntNewInput = Integer.parseInt(StrNewInput);
+      if (IntNewInput == 0) {
+        break;
+      } else {
 
+        System.out.println(IntNewInput + " divided by " + value + " = " + IntNewInput / value
+            + " (with a remainder of " + IntNewInput % value + ")");
+        System.out.println(IntNewInput + " multiplied by " + value + " = " + IntNewInput * value);
+        System.out.println(IntNewInput + " pluse 1" + " = " + ++IntNewInput);
+        System.out.println(IntNewInput + " minuse 1" + " = " + --IntNewInput);
+        System.out.print(IntNewInput + " pluse " + value + " = ");
+        value += IntNewInput;
+        System.out.println(value);
+        System.out.println("Give me another number or type 0 to stop.");
+      }
+    }
+  }
   private static void countDownFromInput(int value) {
-    System.out.println("Lets count down from original numberyou entered.");
-    while(value > 0) {
+    System.out.println("Lets count down from original number you entered.");
+    while(value >= 0) {
     System.out.println(value);
     value--;
   }
