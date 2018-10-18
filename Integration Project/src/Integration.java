@@ -13,12 +13,12 @@ public class Integration {
     // assign scanner object
     scan = new Scanner(System.in);
     System.out.println("Hello, This project is to show what I have learned in COP 2006");
-    System.out.println("Lets start by count down from 5");
-    for(int i=5; i>=0; i--) {
+    System.out.println("Lets start by count down from 3.");
+    for(int i=3; i>=0; i--) {
     System.out.println("Count down at: " + i);
   }
     String myName = "Benjamin"; // String(holds a list of characters) with variable myName
-    System.out.println("My name is " + myName);
+    System.out.println("My name is " + myName +".");
     
     String ageQuestion = "How old am I?"; // String with variable ageQuestion = "How old am I?"
     System.out.println(ageQuestion); // Print ageQuestion
@@ -29,11 +29,12 @@ public class Integration {
         myAge = scan.nextInt();
     }
     while(myAge != 19);
-    System.out.println("You got it!");
+    System.out.print("You got it! ");
     System.out.println("I am " + (int)myAge);
     // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
     
-    String bdayQuestion = "What day and month was I born? (month.day)"; // String with variable bdayQuestion
+    String bdayQuestion = "What day and month was I born?(month.day)";
+    // String with variable bdayQuestion
     System.out.println(bdayQuestion); // Print bdayQuestion
     double myBday; // double with variable name myBday
     do {
@@ -41,8 +42,8 @@ public class Integration {
       myBday = scan.nextDouble();
   }
     while(myBday != 2.25);
-    System.out.println("You got it!");
-    System.out.println("I was born on " + myBday); // Print "I was born on " + myBday
+    System.out.print("You got it! ");
+    System.out.println("I was born on Febuary 25th.("+myBday+")"); // Print "I was born on " + myBday
 
     System.out.println("What is your first name?");// Ask what their name is
     scan.nextLine();
@@ -83,9 +84,9 @@ public class Integration {
         + " below.");
     // scan user int input
     int value = scan.nextInt(); // For a string input: String line = input.nextLine();
-
-    getRandomNumberAndInput(value); //method call with argument value
-
+    getRandomNumberAndInput(value);//method call with argument value
+    useArithmeticOperatorsOnNewAndOldInput(value);
+    countDownFromInput(value);
     // close scanner
     scan.close();
   }
@@ -114,7 +115,6 @@ public class Integration {
 
     // Tell them what number you were thinking of
     System.out.println("I was thinking of the number " + randomNumber);
-    System.out.println("You entered " + value);
 
     if (value == randomNumber) { //create if, else statement
       // Out put prompt
@@ -123,14 +123,6 @@ public class Integration {
       // Out put prompt
       System.out.println("Nice try\nBetter luck next time!");
     }
-    System.out.println(randomNumber + " divided by " + value + " = " + randomNumber/value +
-    " with a remainder of " + randomNumber%value);
-    System.out.println(randomNumber + " multiplied by " + value + " = " + randomNumber*value);
-    System.out.println(value + " pluse 1 " + " = " + ++value);
-    System.out.println(value + " minuse 1 " +  " = " + --value);
-    System.out.print(value + " pluse 5 " + " = ");
-    value += 5;
-    System.out.print(value);
   }
 
   public static void pickColor() {
@@ -168,5 +160,28 @@ public class Integration {
       System.out.println("We have different last names"); 
       break;
     } 
+  }
+
+  public static int useArithmeticOperatorsOnNewAndOldInput(int value) {
+    System.out.println("Give me another number to perform arithmetic operations on.");
+    int NewInput = scan.nextInt();
+    System.out.println(NewInput + " divided by " + value + " = " + NewInput/value +
+    " (with a remainder of " + NewInput%value +")");
+    System.out.println(NewInput + " multiplied by " + value + " = " + NewInput*value);
+    System.out.println(NewInput + " pluse 1" + " = " + ++NewInput);
+    System.out.println(NewInput + " minuse 1" +  " = " + --NewInput);
+    System.out.print(NewInput + " pluse " +value+ " = ");
+    value += NewInput;
+    System.out.println(value);
+    return NewInput;
+    
+  }
+
+  private static void countDownFromInput(int value) {
+    System.out.println("Lets count down from original numberyou entered.");
+    while(value > 0) {
+    System.out.println(value);
+    value--;
+  }
   }
 }
