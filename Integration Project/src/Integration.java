@@ -111,7 +111,7 @@ public class Integration {
   public static void getRandomNumberAndInput(int value) {  //method with argument value
     // Create random number 1-10
     Random randomGen = new Random(); //create an instance or the random class randomGen
-    int randomNumber = randomGen.nextInt(10); 
+    int randomNumber = randomGen.nextInt(11); 
 
     // Tell them what number you were thinking of
     System.out.println("I was thinking of the number " + randomNumber);
