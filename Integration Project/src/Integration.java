@@ -75,8 +75,27 @@ public class Integration {
       if not print "letters" */
     }
     
-    compareLastName(); //call method "compareLastName"
+    System.out.println("What is you last name?");
+    String userLastName = scan.nextLine();
+    String myLastName = "Deleuze";
+    int sameLastName = userLastName.compareTo(myLastName);
+    /*use .compareTo method to compare last names; could have also used 
+    boolean sameLastName = userLastName == myLastName; with and if/else statement */
+    switch (sameLastName) {
+      case 0:
+      System.out.println("We must be related.");
+      break;
+      default:
+      System.out.println("We have different last names"); 
+      break;
+    } 
+    
     yourAge(myAge); // call method "yourAge" with argument "myAge"
+    
+    Player p1 = new Player(yourName, userLastName);
+    Player p2 = new Player();
+    
+    
     pickColor(); // call method "pickColor"
     
     // Output prompt asking for int input
@@ -104,7 +123,6 @@ public class Integration {
       System.out.println(
           "That is a " + Math.abs(differenceInAge) + " year difference between you and I."); 
       // Use Math class "Math.abs" to get the absolute value
-      return;
     }
   }
 
@@ -145,13 +163,13 @@ public class Integration {
         break;
     }
   }
-  private static void compareLastName() {
+/*  private static String compareLastName() {
     System.out.println("What is you last name?");
     String userLastName = scan.nextLine();
     String myLastName = "Deleuze";
     int sameLastName = userLastName.compareTo(myLastName);
-    /*use .compareTo method to compare last names; could have also used 
-    boolean sameLastName = userLastName == myLastName; with and if/else statement */
+    //use .compareTo method to compare last names; could have also used 
+    //boolean sameLastName = userLastName == myLastName; with and if/else statement 
     switch (sameLastName) {
       case 0:
       System.out.println("We must be related.");
@@ -160,8 +178,9 @@ public class Integration {
       System.out.println("We have different last names"); 
       break;
     } 
+    return userLastName;
   }
-
+*/
   public static void useArithmeticOperatorsOnNewAndOldInput(int value) {
     System.out.println("Give me another number to perform arithmetic operations on."
         + "(it will continue until you 0)");
