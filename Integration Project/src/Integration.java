@@ -40,20 +40,20 @@ public class Integration {
     do {
       System.out.println("Enter my birthday.");
       myBday = scan.nextDouble();
-  }
+    }
     while(myBday != 2.25);
     System.out.print("You got it! ");
     System.out.println("I was born on Febuary 25th.("+myBday+")"); // Print "I was born on " + myBday
 
     System.out.println("What is your first name?");// Ask what their name is
     scan.nextLine();
-    String yourName = scan.nextLine();// Get user input
-    yourName = yourName.trim();
+    String yourFirstName = scan.nextLine();// Get user input
+    yourFirstName = yourFirstName.trim();
     // use String method .trim() to get ride of spaces at the end of input
-    int yourNameLength = yourName.length();
+    int yourNameLength = yourFirstName.length();
     /*int(holds a number in a location of memory referred to as "yourName") 
     use String method .length to get how many characters in name*/
-    final boolean sameName = yourName.equalsIgnoreCase(myName);
+    final boolean sameName = yourFirstName.equalsIgnoreCase(myName);
     /*use final(make it so you can not change the value of same name)
     boolean(gives either true or false)
     and String method .equalsIgnoreCase to compare if the Strings are the same*/
@@ -70,15 +70,15 @@ public class Integration {
     }
     else {// use else to print if yourNameLength is less than than 9
       System.out.println("You have " + yourNameLength + " "
-      + (yourName.length() == 1 ? "letter" : "letters") + " in your name.\nNot too long.");
+      + (yourFirstName.length() == 1 ? "letter" : "letters") + " in your name.\nNot too long.");
       /* use Ternary Conditional Operator(tests to see if yourName length is 1, if so print "letter",
       if not print "letters" */
     }
     
     System.out.println("What is you last name?");
-    String userLastName = scan.nextLine();
+    String yourLastName = scan.nextLine();
     String myLastName = "Deleuze";
-    int sameLastName = userLastName.compareTo(myLastName);
+    int sameLastName = yourLastName.compareTo(myLastName);
     /*use .compareTo method to compare last names; could have also used 
     boolean sameLastName = userLastName == myLastName; with and if/else statement */
     switch (sameLastName) {
@@ -92,8 +92,10 @@ public class Integration {
     
     yourAge(myAge); // call method "yourAge" with argument "myAge"
     
-    Player p1 = new Player(yourName, userLastName);
+    Player p1 = new Player(yourFirstName, yourLastName);
     Player p2 = new Player();
+    System.out.println("Your first name is "+ p1.getFirstName());
+    System.out.println("Your last name is "+ p1.getLastName());
     
     
     pickColor(); // call method "pickColor"
@@ -163,24 +165,6 @@ public class Integration {
         break;
     }
   }
-/*  private static String compareLastName() {
-    System.out.println("What is you last name?");
-    String userLastName = scan.nextLine();
-    String myLastName = "Deleuze";
-    int sameLastName = userLastName.compareTo(myLastName);
-    //use .compareTo method to compare last names; could have also used 
-    //boolean sameLastName = userLastName == myLastName; with and if/else statement 
-    switch (sameLastName) {
-      case 0:
-      System.out.println("We must be related.");
-      break;
-      default:
-      System.out.println("We have different last names"); 
-      break;
-    } 
-    return userLastName;
-  }
-*/
   public static void useArithmeticOperatorsOnNewAndOldInput(int value) {
     System.out.println("Give me another number to perform arithmetic operations on."
         + "(it will continue until you 0)");

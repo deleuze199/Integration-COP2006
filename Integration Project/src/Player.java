@@ -1,22 +1,24 @@
 public class Player {
-  private String yourName;
-  private String userLastName;
-  public Player(String yourName, String userLastName) {
-    this.yourName = yourName;
-  }
+  private String yourFirstName;
+  private String yourLastName;
   public Player() {
-    
+    yourFirstName = "";
+    yourLastName = "";
+  }
+  public Player(String yourFirstName, String yourLastName) {
+    this.yourFirstName = yourFirstName;
+    this.yourLastName = yourLastName;
   }
   public void setFirstName() {
-    this.yourName = yourName;
+    this.yourFirstName = yourFirstName;
   }
   public String getFirstName() {
-    return yourName;
+    return yourFirstName;
   }
   public void setLastName() {
-    this.userLastName = userLastName;
+    this.yourLastName = yourLastName;
   }
   public String getLastName() {
-    return userLastName;
+    return yourLastName;
   }
 }
