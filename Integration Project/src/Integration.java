@@ -45,7 +45,9 @@ public class Integration {
         } while (myBday != 2.25);
         System.out.print("You got it! ");
         System.out.println("I was born on Febuary 25th.(" + myBday + ")");
-        // Print "I was born on " + myBday
+        pickColor(); // call method "pickColor"
+        yourAge(myAge);
+        // call method "yourAge" with argument "myAge"// Print "I was born on " + myBday
         System.out.println("What is your first name?");// Ask what their name is
         scan.nextLine();
         String yourFirstName = scan.nextLine();// Get user input
@@ -98,14 +100,28 @@ public class Integration {
                 break;
         }
 
-        yourAge(myAge); // call method "yourAge" with argument "myAge"
+        System.out.println("Do you like Dogs or Cats more?");
+        String animalPrefrence = scan.nextLine();
+        switch (animalPrefrence) {
+            case "Dogs": {
+                Dog myDog = new Dog();
+                System.out.println("Dogs make a " + myDog.getSound() + " sound.");
+                break;
+            }
+            case "Cats": {
+                Cat myCat = new Cat();
+                System.out.println("Cats make a " + myCat.getSound() + " sound.");
+                break;
+            }
+            default:
+                System.out.println("Invalad response");
+                break;
+        }
 
         Player p1 = new Player(yourFirstName, yourLastName);
         Player p2 = new Player();
-        System.out.println("Your first name is " + p1.getFirstName());
-        System.out.println("Your last name is " + p1.getLastName());
-
-        pickColor(); // call method "pickColor"
+        System.out.println("Your first name is " + p1.getFirstName() + " and your last anem is "
+                + p1.getLastName());
 
         // Output prompt asking for int input
         System.out.println("Try to guess what number I am thin thinking of 0-10. Enter the number"
