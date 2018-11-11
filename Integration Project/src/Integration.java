@@ -2,6 +2,7 @@
 // Ctrl, shift, F auto format
 // Ben Deleuze
 // This Program is a collection of what I am learning in COP2006
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -130,7 +131,8 @@ public class Integration {
         int value = scan.nextInt();
         // For a string input: String line = input.nextLine();
         getRandomNumberAndInput(value);// method call with argument value
-        useArithmeticOperatorsOnNewAndOldInput(value);
+        ArrayList<Integer> arithmeticOperatorList = new ArrayList<Integer>();
+        useArithmeticOperatorsOnNewAndOldInput(value, arithmeticOperatorList);
         countDownFromInput(value);
         // close scanner
         scan.close();
@@ -191,19 +193,18 @@ public class Integration {
         }
     }
 
-    public static void useArithmeticOperatorsOnNewAndOldInput(int value) {
+    public static void useArithmeticOperatorsOnNewAndOldInput(int value,
+            ArrayList<Integer> arithmeticOperatorList) {
         System.out.println("Give me another number to perform arithmetic operations on."
                 + "(it will continue until you 0)");
+        int IntNewInput;
+        arithmeticOperatorList.add(value);
         for (;;) {
-            String StrNewInput = scan.nextLine();
-            if (StrNewInput.equals("")) {
-                StrNewInput = scan.nextLine();
-            }
-            int IntNewInput = Integer.parseInt(StrNewInput);
+            IntNewInput = scan.nextInt();
             if (IntNewInput == 0) {
                 break;
             } else {
-
+                arithmeticOperatorList.add(IntNewInput);
                 System.out
                         .println(IntNewInput + " divided by " + value + " = " + IntNewInput / value
                                 + " (with a remainder of " + IntNewInput % value + ")");
@@ -217,6 +218,7 @@ public class Integration {
                 System.out.println("Give me another number or type 0 to stop.");
             }
         }
+        System.out.println("You entered the numbers " + arithmeticOperatorList);
     }
 
     private static void countDownFromInput(int value) {
