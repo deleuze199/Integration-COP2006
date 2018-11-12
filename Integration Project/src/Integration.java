@@ -14,6 +14,7 @@ public class Integration {
         // assign scanner object
         scan = new Scanner(System.in);
         System.out.println("Hello, This project is to show what I have learned in COP 2006");
+        int[] CountingArray = new int[3];
         System.out.println("Lets start by count down from 3.");
         for (int i = 3; i >= 0; i--) {
             System.out.println("Count down at: " + i);
@@ -26,27 +27,33 @@ public class Integration {
         // String with variable ageQuestion = "How old am I?"
         System.out.println(ageQuestion); // Print ageQuestion
         double myAge;
+        int AgeCounter = 1;
         // double(holds a number and a decimal) with variable name myAge
         do {
             System.out.println("Enter my age.");
             myAge = scan.nextInt();
+            AgeCounter --;
         } while (myAge != 19);
         System.out.print("You got it! ");
         System.out.println("I am " + (int) myAge);
-        // Print "I am" and myAge casting(changing the data-type of the
-        // variable) myAge to an int
-
+        // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
+        AgeCounter ++;
+        CountingArray[0] = AgeCounter;
         String bdayQuestion = "What day and month was I born?(month.day)";
         // String with variable bdayQuestion
         System.out.println(bdayQuestion); // Print bdayQuestion
+        int BirthdayCounter = 1;
         double myBday; // double with variable name myBday
         do {
             System.out.println("Enter my birthday.");
             myBday = scan.nextDouble();
+            BirthdayCounter --;
         } while (myBday != 2.25);
         System.out.print("You got it! ");
         System.out.println("I was born on Febuary 25th.(" + myBday + ")");
-        pickColor(); // call method "pickColor"
+        BirthdayCounter ++;
+        CountingArray[1] = BirthdayCounter;
+        pickColor(int[]CountingArray); // call method "pickColor"
         yourAge(myAge);
         // call method "yourAge" with argument "myAge"// Print "I was born on " + myBday
         System.out.println("What is your first name?");// Ask what their name is
@@ -173,6 +180,7 @@ public class Integration {
     }
 
     public static void pickColor() {
+        int ColorCounter = 1;
         System.out.println("What is my favorite color: Red, Blue, or Green");
         // Scanner ScanColor = new Scanner(System.in);
         scan.nextLine();
@@ -180,15 +188,19 @@ public class Integration {
         switch (userColor) { // use create switch statement
             case "Red":
                 System.out.println("Not quite, My favorite color is Green.");
+                ColorCounter--;
                 break;
             case "Blue":
                 System.out.println("Not quite, My favorite color is Green.");
+                ColorCounter--;
                 break;
             case "Green":
                 System.out.println("Correct!");
+                ColorCounter++;
                 break;
             default:
                 System.out.println("Invalid response");
+                ColorCounter = 0;
                 break;
         }
     }
