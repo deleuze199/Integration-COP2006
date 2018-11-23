@@ -143,8 +143,9 @@ public class Integration {
         countDownFromInput(value);
 
         for (int i = 0; i < CountingArray.length; i++) {
-            System.out.println(CountingArray[i]);
+            System.out.print(CountingArray[i] + "\t");
         }
+
         // close scanner
         scan.close();
     }
@@ -184,7 +185,7 @@ public class Integration {
     }
 
     public static void pickColor(int[] CountingArray) {
-        int ColorCounter = 1;
+        int ColorCounter = 0;
         System.out.println("What is my favorite color: Red, Blue, or Green");
         // Scanner ScanColor = new Scanner(System.in);
         scan.nextLine();
@@ -235,7 +236,11 @@ public class Integration {
                 System.out.println("Give me another number or type 0 to stop.");
             }
         }
-        System.out.println("You entered the numbers " + arithmeticOperatorList);
+        System.out.print("You entered the numbers ");
+        for (Integer operator : arithmeticOperatorList) {
+            System.out.print(operator + "  ");
+        }
+        System.out.println();
     }
 
     private static void countDownFromInput(int value) {
