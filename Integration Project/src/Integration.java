@@ -126,7 +126,6 @@ public class Integration {
                 System.out.println("Invalad response");
                 break;
         }
-
         Player p1 = new Player(yourFirstName, yourLastName);
         Player p2 = new Player();
         System.out.println("Your first name is " + p1.getFirstName() + " and your last name is "
