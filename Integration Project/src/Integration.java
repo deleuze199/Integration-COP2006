@@ -142,6 +142,7 @@ public class Integration {
         ArrayList<Integer> arithmeticOperatorList = new ArrayList<Integer>();
         useArithmeticOperatorsOnNewAndOldInput(value, arithmeticOperatorList);
         countDownFromInput(value);
+
         for (int i = 0; i < CountingArray.length; i++) {
             System.out.println(CountingArray[i]);
         }
