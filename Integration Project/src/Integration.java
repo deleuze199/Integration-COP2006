@@ -129,7 +129,7 @@ public class Integration {
 
         Player p1 = new Player(yourFirstName, yourLastName);
         Player p2 = new Player();
-        System.out.println("Your first name is " + p1.getFirstName() + " and your last anem is "
+        System.out.println("Your first name is " + p1.getFirstName() + " and your last name is "
                 + p1.getLastName());
 
         // Output prompt asking for int input
@@ -142,6 +142,9 @@ public class Integration {
         ArrayList<Integer> arithmeticOperatorList = new ArrayList<Integer>();
         useArithmeticOperatorsOnNewAndOldInput(value, arithmeticOperatorList);
         countDownFromInput(value);
+        for (int i = 0; i < CountingArray.length; i++) {
+            System.out.println(CountingArray[i]);
+        }
         // close scanner
         scan.close();
     }
