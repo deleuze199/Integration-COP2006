@@ -32,12 +32,13 @@ public class Integration {
         do {
             System.out.println("Enter my age.");
             myAge = scan.nextInt();
-            AgeCounter --;
+            AgeCounter--;
         } while (myAge != 19);
         System.out.print("You got it! ");
         System.out.println("I am " + (int) myAge);
-        // Print "I am" and myAge casting(changing the data-type of the variable) myAge to an int
-        AgeCounter ++;
+        // Print "I am" and myAge casting(changing the data-type of the variable) myAge
+        // to an int
+        AgeCounter++;
         CountingArray[0] = AgeCounter;
         String bdayQuestion = "What day and month was I born?(month.day)";
         // String with variable bdayQuestion
@@ -47,13 +48,13 @@ public class Integration {
         do {
             System.out.println("Enter my birthday.");
             myBday = scan.nextDouble();
-            BirthdayCounter --;
+            BirthdayCounter--;
         } while (myBday != 2.25);
         System.out.print("You got it! ");
         System.out.println("I was born on Febuary 25th.(" + myBday + ")");
-        BirthdayCounter ++;
+        BirthdayCounter++;
         CountingArray[1] = BirthdayCounter;
-        pickColor(int[]CountingArray); // call method "pickColor"
+        pickColor(CountingArray); // call method "pickColor"
         yourAge(myAge);
         // call method "yourAge" with argument "myAge"// Print "I was born on " + myBday
         System.out.println("What is your first name?");// Ask what their name is
@@ -179,7 +180,7 @@ public class Integration {
         }
     }
 
-    public static void pickColor() {
+    public static void pickColor(int[] CountingArray) {
         int ColorCounter = 1;
         System.out.println("What is my favorite color: Red, Blue, or Green");
         // Scanner ScanColor = new Scanner(System.in);
@@ -203,6 +204,7 @@ public class Integration {
                 ColorCounter = 0;
                 break;
         }
+        CountingArray[2] = ColorCounter;
     }
 
     public static void useArithmeticOperatorsOnNewAndOldInput(int value,
