@@ -46,6 +46,7 @@ public class Integration {
             }
             if (myAge == 19)
                 break;
+            // using break to exit the loop
         }
 
         System.out.print("You got it! ");
@@ -200,50 +201,57 @@ public class Integration {
         System.out.println("Sum = " + SumOfCountingArray);
         System.out.println();
 
-        int row, column;
-        char player = 'X';
+        LoopLeaver = false;
+        while (true) {
+            try {
+                int row, column;
+                char player = 'X';
 
-        // create 2 dimensional array for tic tac toe board
-        char[][] board = new char[3][3];
-        char ch = '1';
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = ch++;
+                // create 2 dimensional array for tic tac toe board
+                char[][] board = new char[3][3];
+                char ch = '1';
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        board[i][j] = ch++;
+                    }
+                }
+                displayBoard(board);
+                while (!winner(board) == true) {
+
+                    // get input for row/column
+                    System.out.println(
+                            "Enter a row and column (0, 1, or 2); for player " + player + ":");
+                    row = scan.nextInt();
+                    column = scan.nextInt();
+
+                    // occupied
+                    while (board[row][column] == 'X' || board[row][column] == 'O') {
+                        System.out.println("This spot is occupied. Please try again");
+                    }
+                    // place the X
+                    board[row][column] = player;
+                    displayBoard(board);
+
+                    if (winner(board)) {
+                        System.out.println("Player " + player + " is the winner!");
+                    }
+
+                    // time to swap players after each go.
+                    if (player == 'O') {
+                        player = 'X';
+
+                    } else {
+                        player = 'O';
+                    }
+                    if (winner(board) == false) {
+                        System.out.println("The game is a draw. Please try again.");
+                    }
+                    LoopLeaver = true;
+                }
+            } catch (Exception ex) {
+                System.out.println("Unexpected error. Restarting from begining.");
             }
         }
-        displayBoard(board);
-        while (!winner(board) == true) {
-
-            // get input for row/column
-            System.out.println("Enter a row and column (0, 1, or 2); for player " + player + ":");
-            row = scan.nextInt();
-            column = scan.nextInt();
-
-            // occupied
-            while (board[row][column] == 'X' || board[row][column] == 'O') {
-                System.out.println("This spot is occupied. Please try again");
-            }
-            // place the X
-            board[row][column] = player;
-            displayBoard(board);
-
-            if (winner(board)) {
-                System.out.println("Player " + player + " is the winner!");
-            }
-
-            // time to swap players after each go.
-            if (player == 'O') {
-                player = 'X';
-
-            } else {
-                player = 'O';
-            }
-            if (winner(board) == false) {
-                System.out.println("The game is a draw. Please try again.");
-
-            }
-        }
-
     }
 
     private static void displayBoard(char[][] board) {
