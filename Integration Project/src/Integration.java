@@ -58,12 +58,24 @@ public class Integration {
         // String with variable bdayQuestion
         System.out.println(bdayQuestion); // Print bdayQuestion
         int BirthdayCounter = 1;
-        double myBday; // double with variable name myBday
-        do {
-            System.out.println("Enter my birthday.");
-            myBday = scan.nextDouble();
-            BirthdayCounter--;
-        } while (myBday != 2.25);
+        double myBday = 0; // double with variable name myBday
+        while (true) {
+            try {
+                do {
+                    System.out.println("Enter my birthday.");
+                    myBday = scan.nextDouble();
+                    BirthdayCounter--;
+                } while (myBday != 2.25);
+            } catch (InputMismatchException e) {
+                System.out.println("Input an Double");
+                scan.nextLine();
+            } catch (Exception ex) {
+                System.out.println("Unexpected Error");
+                scan.nextLine();
+            }
+            if (myBday == 2.25)
+                break;
+        }
         System.out.print("You got it! ");
         System.out.println("I was born on Febuary 25th.(" + myBday + ")");
         BirthdayCounter++;
@@ -145,13 +157,32 @@ public class Integration {
         Player p2 = new Player();
         System.out.println("Your first name is " + p1.getFirstName() + " and your last name is "
                 + p1.getLastName());
-
-        // Output prompt asking for int input
-        System.out.println("Try to guess what number I am thin thinking of 0-10. Enter the number"
-                + " below.");
-        // scan user int input
-        int value = scan.nextInt();
-        // For a string input: String line = input.nextLine();
+        int value = 0;
+        boolean LoopLeaver = false;
+        while (true) {
+            try {
+                // Output prompt asking for int input
+                System.out.println(
+                        "Try to guess what number I am thin thinking of 1-10. Enter the number"
+                                + " below.");
+                // scan user int input
+                value = scan.nextInt();
+                // For a string input: String line = input.nextLine();
+                if (value == 0 || value > 10)
+                    throw new InputZeroException();
+                LoopLeaver = true;
+            } catch (InputZeroException ex) {
+                System.out.println("Not in the Range of 1-10");
+            } catch (InputMismatchException ex) {
+                System.out.println("Input an Integer");
+                scan.nextLine();
+            } catch (Exception ex) {
+                System.out.println("Unexpected Error");
+                scan.nextLine();
+            }
+            if (LoopLeaver == true)
+                break;
+        }
         getRandomNumberAndInput(value);// method call with argument value
         ArrayList<Integer> arithmeticOperatorList = new ArrayList<Integer>();
         useArithmeticOperatorsOnNewAndOldInput(value, arithmeticOperatorList);
@@ -169,23 +200,40 @@ public class Integration {
         // header with parameter myAge method "yourAge" header with "double myAge"
         // parameters
         // Scanner ScanAge = new Scanner(System.in);
-        System.out.println("What is your age?");
-        int userAge = scan.nextInt();
-        int differenceInAge = userAge - (int) myAge;
-        // casting double myAge to an int so the primitive data types match
-        if (differenceInAge == 0) {
-            System.out.println("We are the same age!");
-        } else {
-            System.out.println("That is a " + Math.abs(differenceInAge)
-                    + " year difference between you and I.");
-            // Use Math class "Math.abs" to get the absolute value
+        boolean LoopLeaver = false;
+        while (true) {
+            try {
+                System.out.println("What is your age?");
+                int userAge = scan.nextInt();
+                int differenceInAge = userAge - (int) myAge;
+                // casting double myAge to an int so the primitive data types match
+                if (differenceInAge == 0) {
+                    System.out.println("We are the same age!");
+                    LoopLeaver = true;
+                } else {
+                    System.out.println("That is a " + Math.abs(differenceInAge)
+                            + " year difference between you and I.");
+                    // Use Math class "Math.abs" to get the absolute value
+                    LoopLeaver = true;
+                }
+            } catch (ArithmeticException ex) {
+                System.out.println("Arithmetic Error");
+            } catch (InputMismatchException ex) {
+                System.out.println("Input an Integer");
+                scan.nextLine();
+            } catch (Exception ex) {
+                System.out.println("Unexpected Error");
+                scan.nextLine();
+            }
+            if (LoopLeaver == true)
+                break;
         }
     }
 
     public static void getRandomNumberAndInput(int value) { // method with argument value
         // Create random number 1-10
         Random randomGen = new Random(); // create an instance or the random class randomGen
-        int randomNumber = randomGen.nextInt(11);
+        int randomNumber = randomGen.nextInt(10) + 1;
 
         // Tell them what number you were thinking of
         System.out.println("I was thinking of the number " + randomNumber);
