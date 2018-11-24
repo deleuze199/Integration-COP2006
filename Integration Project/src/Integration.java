@@ -3,6 +3,7 @@
 // Ben Deleuze
 // This Program is a collection of what I am learning in COP2006
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,14 +27,27 @@ public class Integration {
         String ageQuestion = "How old am I?";
         // String with variable ageQuestion = "How old am I?"
         System.out.println(ageQuestion); // Print ageQuestion
-        double myAge;
+        double myAge = 0;
         int AgeCounter = 1;
         // double(holds a number and a decimal) with variable name myAge
-        do {
-            System.out.println("Enter my age.");
-            myAge = scan.nextInt();
-            AgeCounter--;
-        } while (myAge != 19);
+        while (true) {
+            try {
+                do {
+                    System.out.println("Enter my age.");
+                    myAge = scan.nextInt();
+                    AgeCounter--;
+                } while (myAge != 19);
+            } catch (InputMismatchException e) {
+                System.out.println("Input an Integer");
+                scan.nextLine();
+            } catch (Exception ex) {
+                System.out.println("Unexpected Error");
+                scan.nextLine();
+            }
+            if (myAge == 19)
+                break;
+        }
+
         System.out.print("You got it! ");
         System.out.println("I am " + (int) myAge);
         // Print "I am" and myAge casting(changing the data-type of the variable) myAge
@@ -122,9 +136,10 @@ public class Integration {
                 System.out.println("Cats make a " + myCat.getSound() + " sound.");
                 break;
             }
-            default:
+            default: {
                 System.out.println("Invalad response");
                 break;
+            }
         }
         Player p1 = new Player(yourFirstName, yourLastName);
         Player p2 = new Player();
