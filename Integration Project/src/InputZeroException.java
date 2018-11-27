@@ -1,3 +1,4 @@
-public class InputZeroException extends Throwable {
+public class InputZeroException extends Exception {
 
+  private static final long serialVersionUID = 1L;
 }
