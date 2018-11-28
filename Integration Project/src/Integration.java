@@ -2,6 +2,15 @@
 // Ctrl, shift, F auto format
 // Ben Deleuze
 // This Program is a collection of what I am learning in COP2006
+
+// Overload a method- constructor of the Player class
+// Find the smallest value in an array- search SmallestIntInArray to find
+// Get a sum of the values in an array using an accumulator - 
+// search SumOfCountingArray to find
+// Search a two-dimensional array and identify the coordinates where a value was found -
+// can be found in Tic-Tac-Toe game
+// Exception handling- All Exceptions handled
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -14,7 +23,8 @@ public class Integration {
   public static void main(String[] args) {
     // assign scanner object
     scan = new Scanner(System.in);
-    System.out.println("Hello, This project is to show what I have learned in COP 2006");
+    System.out.println(
+        "Hello, This project is to show what I have learned in COP 2006");
     System.out.println("Lets start by count down from 3.");
     for (int i = 3; i >= 0; i--) {
       System.out.println("Count down at: " + i);
@@ -51,7 +61,8 @@ public class Integration {
 
     System.out.print("You got it! ");
     System.out.println("I am " + (int) myAge);
-    // Print "I am" and myAge casting(changing the data-type of the variable) myAge
+    // Print "I am" and myAge casting(changing the data-type of the variable)
+    // myAge
     // to an int
     AgeCounts++;
     int[] CountingArray = new int[3];
@@ -68,7 +79,8 @@ public class Integration {
           myBday = scan.nextDouble();
           BirthdayCounter--;
         } while (myBday != 2.25);
-        // SpotBugs found this but it is essential for the project to use a double
+        // SpotBugs found this but it is essential for the project to use a
+        // double
       } catch (InputMismatchException e) {
         System.out.println("Input an Double");
         scan.nextLine();
@@ -87,7 +99,8 @@ public class Integration {
     CountingArray[1] = BirthdayCounter;
     pickColor(CountingArray); // call method "pickColor"
     yourAge(myAge);
-    // call method "yourAge" with argument "myAge"// Print "I was born on " + myBday
+    // call method "yourAge" with argument "myAge"// Print "I was born on " +
+    // myBday
     System.out.println("What is your first name?");// Ask what their name is
     scan.nextLine();
     String yourFirstName = scan.nextLine();// Get user input
@@ -100,9 +113,9 @@ public class Integration {
      */
     final boolean sameName = yourFirstName.equalsIgnoreCase(myName);
     /*
-     * use final(make it so you can not change the value of same name) boolean(gives
-     * either true or false) and String method .equalsIgnoreCase to compare if the
-     * Strings are the same
+     * use final(make it so you can not change the value of same name)
+     * boolean(gives either true or false) and String method .equalsIgnoreCase
+     * to compare if the Strings are the same
      */
     final boolean length = yourNameLength > 9;
     // use relational operator ">" to test if yourNameLength is greater than 9
@@ -111,16 +124,17 @@ public class Integration {
       System.out.println("We have the same name!");
     } else if (length) {
       // use else if to print if yourNameLength is greater than 9
-      System.out
-          .println("You have " + yourNameLength + " letters in your name.\nThat's a little long!");
+      System.out.println("You have " + yourNameLength
+          + " letters in your name.\nThat's a little long!");
       // use escape sequences \n to insert a new line
     } else {
       // use else to print if yourNameLength is less than than 9
       System.out.println("You have " + yourNameLength + " "
-          + (yourFirstName.length() == 1 ? "letter" : "letters") + " in your name.\nNot too long.");
+          + (yourFirstName.length() == 1 ? "letter" : "letters")
+          + " in your name.\nNot too long.");
       /*
-       * use Ternary Conditional Operator(tests to see if yourName length is 1, if so
-       * print "letter", if not print "letters"
+       * use Ternary Conditional Operator(tests to see if yourName length is 1,
+       * if so print "letter", if not print "letters"
        */
     }
 
@@ -162,15 +176,16 @@ public class Integration {
     Player p1 = new Player(yourFirstName, yourLastName);
     // Player p2 = new Player(); // was used before overloading constructor was
     // created
-    System.out.println(
-        "Your first name is " + p1.getFirstName() + " and your last name is " + p1.getLastName());
+    System.out.println("Your first name is " + p1.getFirstName()
+        + " and your last name is " + p1.getLastName());
     int value = 0;
     boolean LoopLeaver = false;
     while (true) {
       try {
         // Output prompt asking for int input
         System.out.println(
-            "Try to guess what number I am thin thinking of 1-10. Enter the number" + " below.");
+            "Try to guess what number I am thin thinking of 1-10. Enter the number"
+                + " below.");
         // scan user int input
         value = scan.nextInt();
         // For a string input: String line = input.nextLine();
@@ -205,7 +220,17 @@ public class Integration {
     for (int i = 0; i < CountingArray.length; i++) {
       System.out.print("Question " + (i + 1) + ": " + CountingArray[i] + "\t");
     }
-    System.out.println("Sum = " + SumOfCountingArray);
+    System.out.println("Sum = " + SumOfCountingArray + "\t");
+
+    int SmallestIntInArray = CountingArray[0];
+    for (int i = 0; i < CountingArray.length; i++) {
+      if (CountingArray[i] < SmallestIntInArray) {
+        SmallestIntInArray = CountingArray[i];
+      }
+    }
+    System.out.println(
+        "Smallest value recieved on a question: " + SmallestIntInArray);
+
     System.out.println();
 
     LoopLeaver = false;
@@ -228,7 +253,9 @@ public class Integration {
 
           try {
             // get input for row/column
-            System.out.println("Enter a row and column (0, 1, or 2); for player " + player + ":");
+            System.out
+                .println("Enter a row and column (0, 1, or 2); for player "
+                    + player + ":");
             row = scan.nextInt();
             column = scan.nextInt();
 
@@ -330,8 +357,8 @@ public class Integration {
           System.out.println("We are the same age!");
           LoopLeaver = true;
         } else {
-          System.out.println(
-              "That is a " + Math.abs(differenceInAge) + " year difference between you and I.");
+          System.out.println("That is a " + Math.abs(differenceInAge)
+              + " year difference between you and I.");
           // Use Math class "Math.abs" to get the absolute value
           LoopLeaver = true;
         }
@@ -351,9 +378,11 @@ public class Integration {
     }
   }
 
-  public static void getRandomNumberAndInput(int value) { // method with argument value
+  public static void getRandomNumberAndInput(int value) { // method with
+                                                          // argument value
     // Create random number 1-10
-    Random randomGen = new Random(); // create an instance or the random class randomGen
+    Random randomGen = new Random(); // create an instance or the random class
+                                     // randomGen
     int randomNumber = randomGen.nextInt(10) + 1;
 
     // Tell them what number you were thinking of
@@ -397,8 +426,9 @@ public class Integration {
 
   public static void useArithmeticOperatorsOnNewAndOldInput(int value,
       ArrayList<Integer> arithmeticOperatorList) {
-    System.out.println("Give me another number to perform arithmetic operations on."
-        + "(it will continue until you 0)");
+    System.out
+        .println("Give me another number to perform arithmetic operations on."
+            + "(it will continue until you 0)");
     int IntNewInput;
     arithmeticOperatorList.add(value);
     for (;;) {
@@ -408,9 +438,11 @@ public class Integration {
           break;
         } else {
           arithmeticOperatorList.add(IntNewInput);
-          System.out.println(IntNewInput + " divided by " + value + " = " + IntNewInput / value
-              + " (with a remainder of " + IntNewInput % value + ")");
-          System.out.println(IntNewInput + " multiplied by " + value + " = " + IntNewInput * value);
+          System.out.println(
+              IntNewInput + " divided by " + value + " = " + IntNewInput / value
+                  + " (with a remainder of " + IntNewInput % value + ")");
+          System.out.println(IntNewInput + " multiplied by " + value + " = "
+              + IntNewInput * value);
           System.out.println(IntNewInput + " pluse 1" + " = " + ++IntNewInput);
           System.out.println(IntNewInput + " minuse 1" + " = " + --IntNewInput);
           System.out.print(IntNewInput + " pluse " + value + " = ");
