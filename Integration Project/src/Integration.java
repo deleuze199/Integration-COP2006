@@ -1,4 +1,3 @@
-
 // Ctrl, shift, F auto format
 // Ben Deleuze
 // This Program is a collection of what I am learning in COP2006
@@ -20,6 +19,11 @@ public class Integration {
 
   static Scanner scan; // Create scanner object
 
+  /**
+   * Driver method. When program runs to starts from this spot
+   * 
+   * @param args
+   */
   public static void main(String[] args) {
     // assign scanner object
     scan = new Scanner(System.in);
@@ -37,14 +41,14 @@ public class Integration {
     // String with variable ageQuestion = "How old am I?"
     System.out.println(ageQuestion); // Print ageQuestion
     double myAge = 0;
-    int AgeCounts = 1;
+    int ageCounts = 1;
     // double(holds a number and a decimal) with variable name myAge
     while (true) {
       try {
         do {
           System.out.println("Enter my age.");
           myAge = scan.nextInt();
-          AgeCounts--;
+          ageCounts--;
         } while (myAge != 19);
       } catch (InputMismatchException e) {
         System.out.println("Input an Integer");
@@ -64,20 +68,20 @@ public class Integration {
     // Print "I am" and myAge casting(changing the data-type of the variable)
     // myAge
     // to an int
-    AgeCounts++;
-    int[] CountingArray = new int[3];
-    CountingArray[0] = AgeCounts;
+    ageCounts++;
+    int[] countingArray = new int[3];
+    countingArray[0] = ageCounts;
     String bdayQuestion = "What day and month was I born?(month.day)";
     // String with variable bdayQuestion
     System.out.println(bdayQuestion); // Print bdayQuestion
-    int BirthdayCounter = 1;
+    int birthdayCounter = 1;
     double myBday = 0; // double with variable name myBday
     while (true) {
       try {
         do {
           System.out.println("Enter my birthday.");
           myBday = scan.nextDouble();
-          BirthdayCounter--;
+          birthdayCounter--;
         } while (myBday != 2.25);
         // SpotBugs found this but it is essential for the project to use a
         // double
@@ -95,9 +99,9 @@ public class Integration {
 
     System.out.print("You got it! ");
     System.out.println("I was born on Febuary 25th.(" + myBday + ")");
-    BirthdayCounter++;
-    CountingArray[1] = BirthdayCounter;
-    pickColor(CountingArray); // call method "pickColor"
+    birthdayCounter++;
+    countingArray[1] = birthdayCounter;
+    pickColor(countingArray); // call method "pickColor"
     yourAge(myAge);
     // call method "yourAge" with argument "myAge"// Print "I was born on " +
     // myBday
@@ -179,7 +183,7 @@ public class Integration {
     System.out.println("Your first name is " + p1.getFirstName()
         + " and your last name is " + p1.getLastName());
     int value = 0;
-    boolean LoopLeaver = false;
+    boolean loopLeaver = false;
     while (true) {
       try {
         // Output prompt asking for int input
@@ -192,7 +196,7 @@ public class Integration {
         if (value == 0 || value > 10) {
           throw new InputZeroException();
         }
-        LoopLeaver = true;
+        loopLeaver = true;
       } catch (InputZeroException ex) {
         System.out.println("Not in the Range of 1-10");
         scan.nextLine();
@@ -203,7 +207,7 @@ public class Integration {
         System.out.println("Unexpected Error");
         scan.nextLine();
       }
-      if (LoopLeaver == true) {
+      if (loopLeaver == true) {
         break;
       }
     }
@@ -213,27 +217,27 @@ public class Integration {
     countDownFromInput(value);
 
     System.out.println("Score Board");
-    int SumOfCountingArray = 0;
-    for (int i = 0; i < CountingArray.length; i++) {
-      SumOfCountingArray = SumOfCountingArray + CountingArray[i];
+    int sumOfCountingArray = 0;
+    for (int i = 0; i < countingArray.length; i++) {
+      sumOfCountingArray = sumOfCountingArray + countingArray[i];
     }
-    for (int i = 0; i < CountingArray.length; i++) {
-      System.out.print("Question " + (i + 1) + ": " + CountingArray[i] + "\t");
+    for (int i = 0; i < countingArray.length; i++) {
+      System.out.print("Question " + (i + 1) + ": " + countingArray[i] + "\t");
     }
-    System.out.println("Sum = " + SumOfCountingArray + "\t");
+    System.out.println("Sum = " + sumOfCountingArray + "\t");
 
-    int SmallestIntInArray = CountingArray[0];
-    for (int i = 0; i < CountingArray.length; i++) {
-      if (CountingArray[i] < SmallestIntInArray) {
-        SmallestIntInArray = CountingArray[i];
+    int smallestIntInArray = countingArray[0];
+    for (int i = 0; i < countingArray.length; i++) {
+      if (countingArray[i] < smallestIntInArray) {
+        smallestIntInArray = countingArray[i];
       }
     }
     System.out.println(
-        "Smallest value recieved on a question: " + SmallestIntInArray);
+        "Smallest value recieved on a question: " + smallestIntInArray);
 
     System.out.println();
 
-    LoopLeaver = false;
+    loopLeaver = false;
     while (true) {
       try {
         int row;
@@ -262,6 +266,7 @@ public class Integration {
             // occupied
             while (board[row][column] == 'X' || board[row][column] == 'O') {
               System.out.println("This spot is occupied. Please try again");
+              scan.nextLine();
             }
             // place the X
             board[row][column] = player;
@@ -281,7 +286,7 @@ public class Integration {
             if (winner(board) == false) {
               System.out.println("The game is a draw. Please try again.");
             }
-            LoopLeaver = true;
+            loopLeaver = true;
           } catch (InputMismatchException ex) {
             System.out.println("Input a Integer");
             scan.nextLine();
@@ -320,7 +325,13 @@ public class Integration {
 
   }
 
-  // method to determine whether there is an x or an o in the spot
+  /**
+   * @param board - is a 2d char array that holds the location of where each
+   *              player is
+   * @return Boolean winner - tells if there is a winner but I'm still working
+   *         on getting it perfect method to determine whether there is an x or
+   *         an o in the spot
+   */
   public static Boolean winner(char[][] board) {
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[0].length; j++) {
@@ -342,11 +353,14 @@ public class Integration {
     // scan.close();
   }
 
+  /**
+   * @param myAge -
+   */
   public static void yourAge(double myAge) {
     // header with parameter myAge method "yourAge" header with "double myAge"
     // parameters
     // Scanner ScanAge = new Scanner(System.in);
-    boolean LoopLeaver = false;
+    boolean loopLeaver = false;
     while (true) {
       try {
         System.out.println("What is your age?");
@@ -355,12 +369,12 @@ public class Integration {
         // casting double myAge to an int so the primitive data types match
         if (differenceInAge == 0) {
           System.out.println("We are the same age!");
-          LoopLeaver = true;
+          loopLeaver = true;
         } else {
           System.out.println("That is a " + Math.abs(differenceInAge)
               + " year difference between you and I.");
           // Use Math class "Math.abs" to get the absolute value
-          LoopLeaver = true;
+          loopLeaver = true;
         }
       } catch (ArithmeticException ex) {
         System.out.println("Arithmetic Error");
@@ -372,17 +386,17 @@ public class Integration {
         System.out.println("Unexpected Error");
         scan.nextLine();
       }
-      if (LoopLeaver == true) {
+      if (loopLeaver == true) {
         break;
       }
     }
   }
 
-  public static void getRandomNumberAndInput(int value) { // method with
-                                                          // argument value
+  public static void getRandomNumberAndInput(int value) {
+    // method with argument value
     // Create random number 1-10
-    Random randomGen = new Random(); // create an instance or the random class
-                                     // randomGen
+    Random randomGen = new Random();
+    // create an instance or the random class randomGen
     int randomNumber = randomGen.nextInt(10) + 1;
 
     // Tell them what number you were thinking of
@@ -397,8 +411,8 @@ public class Integration {
     }
   }
 
-  public static void pickColor(int[] CountingArray) {
-    int ColorCounter = 0;
+  public static void pickColor(int[] countingArray) {
+    int colorCounter = 0;
     System.out.println("What is my favorite color: Red, Blue, or Green");
     // Scanner ScanColor = new Scanner(System.in);
     scan.nextLine();
@@ -406,22 +420,22 @@ public class Integration {
     switch (userColor) { // use create switch statement
       case "Red":
         System.out.println("Not quite, My favorite color is Green.");
-        ColorCounter--;
+        colorCounter--;
         break;
       case "Blue":
         System.out.println("Not quite, My favorite color is Green.");
-        ColorCounter--;
+        colorCounter--;
         break;
       case "Green":
         System.out.println("Correct!");
-        ColorCounter++;
+        colorCounter++;
         break;
       default:
         System.out.println("Invalid response");
-        ColorCounter = 0;
+        colorCounter = 0;
         break;
     }
-    CountingArray[2] = ColorCounter;
+    countingArray[2] = colorCounter;
   }
 
   public static void useArithmeticOperatorsOnNewAndOldInput(int value,
@@ -429,24 +443,24 @@ public class Integration {
     System.out
         .println("Give me another number to perform arithmetic operations on."
             + "(it will continue until you 0)");
-    int IntNewInput;
+    int intNewInput;
     arithmeticOperatorList.add(value);
     for (;;) {
       try {
-        IntNewInput = scan.nextInt();
-        if (IntNewInput == 0) {
+        intNewInput = scan.nextInt();
+        if (intNewInput == 0) {
           break;
         } else {
-          arithmeticOperatorList.add(IntNewInput);
+          arithmeticOperatorList.add(intNewInput);
           System.out.println(
-              IntNewInput + " divided by " + value + " = " + IntNewInput / value
-                  + " (with a remainder of " + IntNewInput % value + ")");
-          System.out.println(IntNewInput + " multiplied by " + value + " = "
-              + IntNewInput * value);
-          System.out.println(IntNewInput + " pluse 1" + " = " + ++IntNewInput);
-          System.out.println(IntNewInput + " minuse 1" + " = " + --IntNewInput);
-          System.out.print(IntNewInput + " pluse " + value + " = ");
-          value += IntNewInput;
+              intNewInput + " divided by " + value + " = " + intNewInput / value
+                  + " (with a remainder of " + intNewInput % value + ")");
+          System.out.println(intNewInput + " multiplied by " + value + " = "
+              + intNewInput * value);
+          System.out.println(intNewInput + " pluse 1" + " = " + ++intNewInput);
+          System.out.println(intNewInput + " minuse 1" + " = " + --intNewInput);
+          System.out.print(intNewInput + " pluse " + value + " = ");
+          value += intNewInput;
           System.out.println(value);
           System.out.println("Give me another number or type 0 to stop.");
         }
