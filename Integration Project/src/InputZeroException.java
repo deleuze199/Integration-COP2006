@@ -1,6 +1,7 @@
 /**
+ * InputZeroException class extends Exception; used to throw exception.
+ * 
  * @author bldeleuze1232
- *
  */
 public class InputZeroException extends Exception {
 

@@ -20,9 +20,9 @@ public class Integration {
   static Scanner scan; // Create scanner object
 
   /**
-   * Driver method. When program runs to starts from this spot
+   * Driver method; When program runs to starts from this spot.
    * 
-   * @param args
+   * @param args - Parameter of the driver method
    */
   public static void main(String[] args) {
     // assign scanner object
@@ -66,8 +66,7 @@ public class Integration {
     System.out.print("You got it! ");
     System.out.println("I am " + (int) myAge);
     // Print "I am" and myAge casting(changing the data-type of the variable)
-    // myAge
-    // to an int
+    // myAge to an int
     ageCounts++;
     int[] countingArray = new int[3];
     countingArray[0] = ageCounts;
@@ -83,8 +82,8 @@ public class Integration {
           myBday = scan.nextDouble();
           birthdayCounter--;
         } while (myBday != 2.25);
-        // SpotBugs found this but it is essential for the project to use a
-        // double
+        // SpotBugs and Checkstyle found this but it is essential for the
+        // project to use a double
       } catch (InputMismatchException e) {
         System.out.println("Input an Double");
         scan.nextLine();
@@ -311,6 +310,11 @@ public class Integration {
     }
   }
 
+  /**
+   * method that displays the Tic-Tac-Toe board.
+   * 
+   * @param board - char 2d array that holds the players positions
+   */
   private static void displayBoard(char[][] board) {
     for (int i = 0; i < board.length; i++) {
       for (int j = 0; j < board[i].length; j++) {
@@ -326,11 +330,12 @@ public class Integration {
   }
 
   /**
+   * tells if there is a winner but I'm still working on getting it perfect
+   * method to determine whether there is an x or an o in the spot.
+   * 
    * @param board - is a 2d char array that holds the location of where each
    *              player is
-   * @return Boolean winner - tells if there is a winner but I'm still working
-   *         on getting it perfect method to determine whether there is an x or
-   *         an o in the spot
+   * @return winner - boolean that store whether there is a winner or not
    */
   public static Boolean winner(char[][] board) {
     for (int i = 0; i < board.length; i++) {
@@ -354,7 +359,10 @@ public class Integration {
   }
 
   /**
-   * @param myAge -
+   * compares your age to my age, computes the age difference, and says if we
+   * are the same age.
+   * 
+   * @param myAge - stores my age to compare to user age
    */
   public static void yourAge(double myAge) {
     // header with parameter myAge method "yourAge" header with "double myAge"
@@ -392,6 +400,11 @@ public class Integration {
     }
   }
 
+  /**
+   * generates random number between 1-10 and compares it to int value.
+   * 
+   * @param value - stores the vale of the user input (between 1-10)
+   */
   public static void getRandomNumberAndInput(int value) {
     // method with argument value
     // Create random number 1-10
@@ -411,6 +424,13 @@ public class Integration {
     }
   }
 
+  /**
+   * tests to see if user knows my favorite number and if incorrect it deducts a
+   * points from int[] countingArray.
+   * 
+   * @param countingArray - stores the points, in an array, for each question
+   *                      about me
+   */
   public static void pickColor(int[] countingArray) {
     int colorCounter = 0;
     System.out.println("What is my favorite color: Red, Blue, or Green");
@@ -438,6 +458,14 @@ public class Integration {
     countingArray[2] = colorCounter;
   }
 
+  /**
+   * performs arithmetic operations on value and then updates int value.
+   * 
+   * @param value                  - stores the vale of the user input (between
+   *                               1-10)
+   * 
+   * @param arithmeticOperatorList - ArrayList used to store user input
+   */
   public static void useArithmeticOperatorsOnNewAndOldInput(int value,
       ArrayList<Integer> arithmeticOperatorList) {
     System.out
@@ -479,6 +507,11 @@ public class Integration {
     System.out.println();
   }
 
+  /**
+   * counts down from the original value inputed when guessing number 1-10.
+   * 
+   * @param value - stores the vale of the user input (between 1-10)
+   */
   private static void countDownFromInput(int value) {
     System.out.println("Lets count down from original number you entered.");
     while (value >= 0) {
